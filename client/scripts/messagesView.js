@@ -8,6 +8,7 @@ var MessagesView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    //Messages.$chats.empty();
     MessagesView.render(Messages._data);
   },
 

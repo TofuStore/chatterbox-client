@@ -8,6 +8,7 @@ var App = {
 
   username: 'anonymous',
 
+  //when browser opens, initialize function will load information onto chatterbox
   initialize: function() {
     App.username = window.location.search.substr(10);
 
@@ -24,25 +25,26 @@ var App = {
 
     setInterval(function() {
       App.fetch();
-    }, 5000);
+    }, 3000);
   },
 
+  //getting all the data from the server and putting it into our storage bin in messages and room, then rendering
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
       // console.log(data);
-      Messages._data = data;
-      for (i in data) {
+      Messages._data = [];
+      for (let i in data) {
+        Messages._add(data[i]);
         if (!Rooms._data.includes(data[i].roomname)) {
           Rooms._data.push(data[i].roomname);
         }
       }
-      console.log(Rooms._data);
-
+      let chats = document.getElementById('chats');
+      chats.innerHTML = '';
       RoomsView.initialize();
       MessagesView.initialize();
       callback();
-      // console.log(Messages._data);
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });
