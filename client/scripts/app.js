@@ -20,6 +20,8 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    //RoomsView.initialize();
+
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
 
@@ -37,12 +39,17 @@ var App = {
       for (let i in data) {
         Messages._add(data[i]);
         if (!Rooms._data.includes(data[i].roomname)) {
-          Rooms._data.push(data[i].roomname);
+          Rooms._add(data[i].roomname);
         }
       }
       let chats = document.getElementById('chats');
       chats.innerHTML = '';
+
+      let rooms = document.getElementsByTagName('select')[0];
+      rooms.innerHTML = '';
+
       RoomsView.initialize();
+
       MessagesView.initialize();
       callback();
       // TODO: Use the data to update Messages and Rooms
