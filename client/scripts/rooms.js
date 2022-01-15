@@ -5,9 +5,14 @@
 var Rooms = {
 
   // TODO: Define how you want to store the list of rooms
-  _data: null,
+  _data: [],
 
   // TODO: Define methods which allow you to add rooms, update the list,
   // mark a room as selected, etc.
+
+  _add: function () {
+
+  }
+
 
 };
