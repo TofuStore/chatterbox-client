@@ -9,9 +9,10 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    RoomsView.render(Rooms._data);
   },
 
-  render: function() {
+  render: function(allRooms) {
     // TODO: Render out the list of rooms.
   },
 

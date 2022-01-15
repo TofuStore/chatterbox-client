@@ -14,12 +14,8 @@ var MessagesView = {
   render: function(allMessages) {
     // TODO: Render _all_ the messages.
     for (let i = 0; i < allMessages.length; i++) {
-
       MessagesView.renderMessage(allMessages[i]);
-      // let newChat = MessageView.render(allMessages[i]);
-      // MessagesView.$chats.append(newChat);
     }
-
   },
 
   renderMessage: function(message) {
